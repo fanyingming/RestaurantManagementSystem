@@ -4,6 +4,29 @@
 <title>小楼听雨餐饮管理系统</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link type="text/css" href="style-1.css" rel="stylesheet" />
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+	
+		$(".t3 a").click(function()
+		{
+		
+			$(this).parent().parent().next().show();
+			//$(this).parent().parent().next().next().show();
+		});
+		$(".t4 a").click(function()
+		{
+			$(this).parent().parent().next().show();
+		//	$(this).parent().parent().next().next().show();
+		});
+		$(".shouqiBtn").click(function()
+		{
+			$(this).parent().parent().hide();
+		});
+	
+	});
+</script>
 </head>
 <body>
 	<div style="width:100%;">
@@ -56,9 +79,115 @@
 				<li class="t8" style="width:110px;"><button>删除</button></li>
 				
 		</ul>	
-			
-			
-			
+		<div style="display:none;">
+			<div class="orderDetail" style="margin-left:35px;border-right:1px solid #99aaff;margin-bottom:20px;">
+				<p><div class="dishName">锅包肉</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">红烧狮子头</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">酸辣白菜</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">油焖茄子</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">清蒸鲈鱼</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">宫保鸡丁</div><span> 1</span><span>份</span></p>
+			</div>
+			<div class="orderDetail" style="margin-bottom:20px;">
+				<p><div class="dishName">青岛啤酒</div><span> 10</span><span>瓶</span></p>
+				<p><div class="dishName">牛栏山二锅头</div><span> 5</span><span>瓶</span></p>
+				<p><div class="dishName">芬达</div><span> 1</span><span>瓶</span></p>
+				<p><div class="dishName">酸梅汤</div><span> 1</span><span>瓶</span></p>
+			</div>
+			<div style="width:38px;height:180px;float:left;">
+				<button class="shouqiBtn" style="height:60px;margin:0px;margin-top:120px;">收起</button>
+			</div>
+		</div>
+		<ul class="table interleaved_0" style="margin:auto;width:930px	;">
+				<li class="t1" style="width:110px;">1</li>
+				<li class="t2" style="width:110px;">2号桌</li>
+				<li class="t3" style="width:110px;"><a href="#">查看菜品</a></li>
+				<li class="t4" style="width:110px;"><a href="#">查看酒水</a></li>
+				<li class="t5" style="width:110px;"><a href="">1344</a></li>	
+				<li class="t6" style="width:110px;">正在准备</li>				
+				<li class="t7" style="width:150px;"><button>正在准备</button><button>准备完成</button></li>
+				<li class="t8" style="width:110px;"><button>删除</button></li>
+				
+		</ul>	
+		<div style="display:none;">
+			<div class="orderDetail" style="margin-left:35px;border-right:1px solid #99aaff;margin-bottom:20px;">
+				<p><div class="dishName">锅包肉</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">红烧狮子头</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">酸辣白菜</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">油焖茄子</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">清蒸鲈鱼</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">宫保鸡丁</div><span> 1</span><span>份</span></p>
+			</div>
+			<div class="orderDetail" style="margin-bottom:20px;">
+				<p><div class="dishName">青岛啤酒</div><span> 10</span><span>瓶</span></p>
+				<p><div class="dishName">牛栏山二锅头</div><span> 5</span><span>瓶</span></p>
+				<p><div class="dishName">芬达</div><span> 1</span><span>瓶</span></p>
+				<p><div class="dishName">酸梅汤</div><span> 1</span><span>瓶</span></p>
+			</div>
+			<div style="width:38px;height:180px;float:left;">
+				<button class="shouqiBtn" style="height:60px;margin:0px;margin-top:120px;">收起</button>
+			</div>
+		</div>
+		<ul class="table interleaved_0" style="margin:auto;width:930px	;">
+				<li class="t1" style="width:110px;">1</li>
+				<li class="t2" style="width:110px;">2号桌</li>
+				<li class="t3" style="width:110px;"><a href="#">查看菜品</a></li>
+				<li class="t4" style="width:110px;"><a href="#">查看酒水</a></li>
+				<li class="t5" style="width:110px;"><a href="">1344</a></li>	
+				<li class="t6" style="width:110px;">正在准备</li>				
+				<li class="t7" style="width:150px;"><button>正在准备</button><button>准备完成</button></li>
+				<li class="t8" style="width:110px;"><button>删除</button></li>
+				
+		</ul>	
+		<div style="display:none;">
+			<div class="orderDetail" style="margin-left:35px;border-right:1px solid #99aaff;margin-bottom:20px;">
+				<p><div class="dishName">锅包肉</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">红烧狮子头</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">酸辣白菜</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">油焖茄子</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">清蒸鲈鱼</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">宫保鸡丁</div><span> 1</span><span>份</span></p>
+			</div>
+			<div class="orderDetail" style="margin-bottom:20px;">
+				<p><div class="dishName">青岛啤酒</div><span> 10</span><span>瓶</span></p>
+				<p><div class="dishName">牛栏山二锅头</div><span> 5</span><span>瓶</span></p>
+				<p><div class="dishName">芬达</div><span> 1</span><span>瓶</span></p>
+				<p><div class="dishName">酸梅汤</div><span> 1</span><span>瓶</span></p>
+			</div>
+			<div style="width:38px;height:180px;float:left;">
+				<button class="shouqiBtn" style="height:60px;margin:0px;margin-top:120px;">收起</button>
+			</div>
+		</div>
+		<ul class="table interleaved_0" style="margin:auto;width:930px	;">
+				<li class="t1" style="width:110px;">1</li>
+				<li class="t2" style="width:110px;">2号桌</li>
+				<li class="t3" style="width:110px;"><a href="#">查看菜品</a></li>
+				<li class="t4" style="width:110px;"><a href="#">查看酒水</a></li>
+				<li class="t5" style="width:110px;"><a href="">1344</a></li>	
+				<li class="t6" style="width:110px;">正在准备</li>				
+				<li class="t7" style="width:150px;"><button>正在准备</button><button>准备完成</button></li>
+				<li class="t8" style="width:110px;"><button>删除</button></li>
+				
+		</ul>	
+		<div style="display:none;">
+			<div class="orderDetail" style="margin-left:35px;border-right:1px solid #99aaff;margin-bottom:20px;">
+				<p><div class="dishName">锅包肉</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">红烧狮子头</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">酸辣白菜</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">油焖茄子</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">清蒸鲈鱼</div><span> 1</span><span>份</span></p>
+				<p><div class="dishName">宫保鸡丁</div><span> 1</span><span>份</span></p>
+			</div>
+			<div class="orderDetail" style="margin-bottom:20px;">
+				<p><div class="dishName">青岛啤酒</div><span> 10</span><span>瓶</span></p>
+				<p><div class="dishName">牛栏山二锅头</div><span> 5</span><span>瓶</span></p>
+				<p><div class="dishName">芬达</div><span> 1</span><span>瓶</span></p>
+				<p><div class="dishName">酸梅汤</div><span> 1</span><span>瓶</span></p>
+			</div>
+			<div style="width:38px;height:180px;float:left;">
+				<button class="shouqiBtn" style="height:60px;margin:0px;margin-top:120px;">收起</button>
+			</div>
+		</div>		
 	</div>
 </div>
 </div>
