@@ -280,14 +280,14 @@ div.head div.menu{
  left:28px; 
 bottom:0; 
 position:absolute; 
-width:748px} 
+width:920px} 
 div.head div.menu a{ 
  display:block; 
 width:130px; 
 height:38px; 
 float:left; 
 background:url(blue/menu.gif) 0 -1634px; 
-margin-left:12px; 
+margin-left:5px; 
 font-size:14px; 
 font-weight:bolder; 
 color:#FFF; 
