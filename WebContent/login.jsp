@@ -61,8 +61,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       			<span style="color:#EA0000;font-size:18px;float:right;margin-right:80px;margin-left:10px;">*<%=result %>!!!</span>
        			<% } %>
 				</form>
-  	   				
 			</div>
+		<div style="width:50%;margin:0px;float:left;height:400px;">
+			以下账号仅供测试使用:<br>
+			管理员: admin admin<br>
+			餐厅经理:宇哥 123456<br>
+			服务员：小荣荣 123456<br>
+			厨师：存哥 123456<br>
+		</div>
 		</div>
 	</div>
 	
