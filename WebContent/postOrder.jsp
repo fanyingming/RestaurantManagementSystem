@@ -1,3 +1,8 @@
+<%@ page language="java"  pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -75,30 +80,18 @@
 </script>
 </head>
 <body>
-	<div style="width:100%;">
-		<div class="head" style="height:125px;padding-bottom:0px;">
-			<div style="width:47%;float:left;margin-left:3%;">
-				<a href="index.html" class="nameLogo">小楼听雨<span style="font-size:20px;">餐饮管理系统</span></a>
-			</div>
-			<div style="width:50%;float:left;">
-				<div class="logArea" >
-					<a href="log.html">登录</a>
-				</div>
-				<div class="logArea">
-					<a href="log.html">注册</a>
-				</div>
-			</div>
-		
-			 <div class="menu">
-				<a class="x " href="index.html">开台管理</a>
-				<a class="x " href="menuList.html">菜谱管理</a>
-				<a class="x " href="wineList.html">酒水管理</a>
-				<a class="x " href="orderList.html">下单管理</a>
-				<a class="x select" href="postOrder.html">订单提交</a>
+		<jsp:include page="header.jsp" flush="true" />
+		 	<div class="menu">
+				<a onclick="nihao(this)" class="x " href="index.jsp">开台管理</a>
+				<a onclick="nihao(this)" class="x " href="menuList.jsp">菜谱管理</a>
+				<a onclick="nihao(this)" class="x " href="wineList.jsp">酒水管理</a>
+				<a onclick="nihao(this)" class="x " href="orderList.jsp">下单管理</a>
+				<a onclick="nihao(this)" class="x select" href="postOrder.jsp">订单提交</a>
+				<a onclick="nihao(this)" class="x " href="financeManage.jsp">财务管理</a>
+				<a onclick="nihao(this)" class="x " href="systemManage.jsp">系统管理</a>
 				
 			</div>
 		</div>
-	</div>
 <div class="body">
 <div class="body_bg">
 	
@@ -201,27 +194,8 @@
 	
 </div>
 </div>
-<div class="foot">
-	<span>&#169; 2014 <a href=""#">小楼听雨餐饮管理系统</a> &nbsp; </span>
-    <span>
-    	<a rel="nofollow" href=""#">关于我们</a> |
-		<a href=""#">合作伙伴</a> |
-   
-	</span>
-</div>
+<jsp:include page="footer.jsp" flush="true" />
 
-        
-        
-
-<div class="foot">
-    <span>
-    	<a href=""#">联系我们</a> |
-        <a href=""#">关于我们</a> |
-    
-	</span>
-  
-</div>
-</div>
 
 </body>
 </html>
