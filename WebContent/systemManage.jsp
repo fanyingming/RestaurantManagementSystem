@@ -18,7 +18,7 @@ function addMember()
 	var str3="<li class='t2' style='width:156px;'><select><option value ='waiter'>服务员</option><option value ='cook'>厨师</option><option value ='manager'>经理</option><option value ='admin'>管理员</option></select></li>";
 	var str4="<li class='t3' style='width:156px;'><input type='text' /></li>";
 	var str5="<li class='t3' style='width:156px;'><input type='text' /></li>";
-	var str6="<li class='t5' style='width:156px;'><button>删除</button><button>保存</button></li>";
+	var str6="<li class='t5' style='width:156px;'><button>保存</button></li>";
 	var str7="</ul>";
 
 	$("#contentArea").append(str1+str2+str3+str4+str5+str6+str7);
