@@ -20,9 +20,9 @@ public class UserService {
 		return dao.isExist(u);
 	}
 
-	public boolean deleteUserByUid(int userName) throws Exception {
+	public boolean deleteUserByUid(int userId) throws Exception {
 		
-		return dao.deleteUserByUid(userName);
+		return dao.deleteUserByUid(userId);
 	}
 
 

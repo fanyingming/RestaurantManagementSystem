@@ -1,6 +1,5 @@
 package com.project.service;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import com.project.dao.FoodDao;

@@ -1,4 +1,5 @@
-<%@ page language="java" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.project.javabean.*,com.project.util.*,
+com.project.service.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -16,9 +17,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<a href="index.jsp" class="nameLogo">小楼听雨<span style="font-size:20px;">餐饮管理系统</span></a>
 			</div>
 			<div style="width:50%;float:left;">
-				<div class="logArea" >
-					<a href="login.jsp">登录</a>
-				</div>
+				<%
+				if(session.getAttribute("user")!=null){
+				User user=(User)session.getAttribute("user");
+				String user_position;
+				switch(user.getUser_type())
+				{
+					case 1:user_position = "管理员";break;
+					case 2:user_position = "餐厅经理";break;
+					case 3:user_position = "服务员";break;
+					case 4:user_position = "厨师";break;
+					default:user_position= "unknown";break;
+				}
+			%>
+			<span style="float:right;">欢迎 <%=user.getUser_name()%>, 您的职位是 <%=user_position %>&nbsp;[<a href="UserServlet?type=exit" id="exit-button">退出</a>]</span>   
+			<% }%>
 
 			</div>
 			<div class="menu">

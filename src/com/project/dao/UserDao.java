@@ -32,7 +32,7 @@ public class UserDao {
 		Connection conn = DBPoolUtil.getConnection();
 		String sql = "select * from tb_user where user_name='"
 				+ u.getUser_name() + "' and user_pass='" + u.getUser_pass()
-				+ "' and user_type='"+u.getUser_type()+"'";
+				+ "'";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet result = pstmt.executeQuery(sql);
 		if (result.next())
