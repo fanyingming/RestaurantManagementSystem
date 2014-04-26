@@ -132,6 +132,7 @@ public class UserDao {
 		DBPoolUtil.closeConnection(conn);
 		return user_num;
 	}
+	
 	public List<User> listAllUserOrderByUserId(int begin, int offset) throws Exception{
 		List<User> users = new ArrayList<User>();
 		Connection conn = DBPoolUtil.getConnection();
