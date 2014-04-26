@@ -28,18 +28,7 @@ function addMember()
 </head>
 <body>
 	<jsp:include page="header.jsp" flush="true" />
-		 	<div class="menu">
-				<a onclick="nihao(this)" class="x " href="index.jsp">开台管理</a>
-				<a onclick="nihao(this)" class="x " href="menuList.jsp">菜谱管理</a>
-				<a onclick="nihao(this)" class="x " href="wineList.jsp">酒水管理</a>
-				<a onclick="nihao(this)" class="x " href="orderList.jsp">下单管理</a>
-				<a onclick="nihao(this)" class="x " href="postOrder.jsp">订单提交</a>
-				<a onclick="nihao(this)" class="x " href="financeManage.jsp">财务管理</a>
-				<a onclick="nihao(this)" class="x select" href="systemManage.jsp">系统管理</a>
-				
-			</div>
-		</div>
-	</div>
+	
 <div class="body">
 <div class="body_bg">
 	<div style="float:none;margin-left:105px;width:100px;height:40px;margin-top:30px;margin-bottom:5px;">

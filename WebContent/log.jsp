@@ -1,4 +1,8 @@
-
+<%@ page language="java" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -9,23 +13,7 @@
 <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
 </head>
 <body>
-	<div style="width:100%;">
-		<div class="head" style="height:125px;padding-bottom:0px;">
-			<div style="width:47%;float:left;margin-left:3%;">
-				<a href="index.html" style="font-size:45px;color:white;font-family:'微软雅黑';">拼车网</a>
-			</div>
-			<div style="width:50%;float:left;">
-				<div class="logArea" >
-					<a href="log.html">登录</a>
-				</div>
-				<div class="logArea">
-					<a href="log.html">注册</a>
-				</div>
-
-			</div>
-			
-		</div>
-	</div>
+	<jsp:include page="header.jsp" flush="true" />
 	<div class="body" style="height:500px;">
 		<div class="body_bg">
 			<div style="width:49%;margin:0px;float:left;border-right:1px solid;border-right-color:#77eeff;height:400px;">
