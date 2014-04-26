@@ -32,6 +32,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	
 	});
+	
+	function addMember()
+	{
+		
+	
+		var str1="<ul class='table interleaved_0' style='margin:auto; width:786px;'>";
+		var str2="<li class='t1' style='width:130px;'><input type='text' /></li>";
+		var str3="<li class='t2' style='width:130px;'><select><option value ='baijiu'>白酒</option><option value ='pijiu'>啤酒</option><option value ='饮料'>饮料</option></select></li>";
+		var str4="<li class='t3' style='width:130px;'><input type='text' /></li>";
+		var str5="<li class='t4' style='width:130px;'><input type='text' /></li>";
+		var str6="<li class='t5' style='width:130px;'></li>";
+		var str7="<li class='t6' style='width:130px;'><button>保存</button></li>";
+		var str8="</ul>";
+		$("#contentArea").append(str1+str2+str3+str4+str5+str6+str7+str8);
+	}
 </script>
 </head>
 <body>
@@ -50,8 +65,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 <div class="body">
 <div class="body_bg">
-
-	<div style="margin-top:30px;">
+	<div style="float:none;margin-left:105px;width:100px;height:40px;margin-top:30px;margin-bottom:5px;">
+		<button style="width:100%;height:100%;" onclick="addMember();">+添加酒水</button>
+	</div>
+	<div id="contentArea">
 		<ul class="table title" style="margin:auto; width:786px	;">
 			<li class="t1" style="width:130px;">编号</li>
 			<li class="t2" style="width:130px;">类型</li>
