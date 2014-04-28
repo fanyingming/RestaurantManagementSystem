@@ -22,7 +22,11 @@ public class FoodService {
 
 
 	public List<Food> listAllFoods() throws Exception {
-		return dao.listAllFoods();
+		return dao.listAllFoodsByFoodType(1);
+	}
+	
+	public List<Food> listAllDrinks() throws Exception {
+		return dao.listAllFoodsByFoodType(2);
 	}
 
 	public int getFoodTotalNum() throws Exception {

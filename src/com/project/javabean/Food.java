@@ -7,7 +7,16 @@ public class Food {
 	private String food_description;
 	private String food_image_path;
 	private int food_type;
+	private int food_price;
 	
+	
+	
+	public int getFood_price() {
+		return food_price;
+	}
+	public void setFood_price(int food_price) {
+		this.food_price = food_price;
+	}
 	public int getFood_id() {
 		return food_id;
 	}

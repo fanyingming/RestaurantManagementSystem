@@ -1,4 +1,5 @@
-<%@ page language="java"  pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.project.javabean.*,com.project.util.*,
+com.project.service.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -47,6 +48,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 </head>
 <body>
+<%
+	FoodService foodService=new FoodService();
+	List<Food> list = foodService.listAllFoods(); 
+%>
 		<jsp:include page="header.jsp" flush="true" />
 		 	
 <div class="body">
@@ -64,23 +69,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li class="t6" style="width:130px;">删除菜品</li>
 
 		</ul>
+		<%
+		if(list!=null){
+			for(int i=0;i<list.size();i++){
+				Food food= (Food)list.get(i);
+		%>
 		<ul class="table interleaved_0" style="margin:auto; width:786px;">
-				<li class="t1" style="width:130px;">1</li>
-				<li class="t2" style="width:130px;">猪肉炖粉条</li>
+				<li class="t1" style="width:130px;"><%=food.getFood_id()%></li>
+				<li class="t2" style="width:130px;"><%=food.getFood_name()%></li>
 				<li class="t3" style="width:130px;">李达华</li>
-				<li class="t4" style="width:130px;">998</li>
+				<li class="t4" style="width:130px;"><%=food.getFood_price() %></li>
 				<li class="t5" style="width:130px;"><a href="#">查看</a></li>
 				<li class="t6" style="width:130px;"><button>删除</button></li>
-		</ul>	
+		</ul>
+		
 		<div style="margin:auto; width:786px;border:1px solid #3388FF;height:180px;display:none;">
 			<div style="width:180px;float:left;height:180px;">
 				<img style="width:180px;height:180px;" src="image/zrdft.jpg" />
 			</div>
 			<div style="float:left;height:140px;width:546px;padding:30px;">
-				该菜为四川菜也是东北菜，发源于四川，在唐朝期间薛仁贵非常喜欢四川菜，薛仁贵被政府发配到东北后，他也把四川菜带来东北，并根据当地的风格将其发展成了东北菜系： 东北菜 - 东北菜包括辽宁、 黑龙江和吉林三省的菜肴。 它亦是我国历史悠久、富有特色的地方风味菜肴，自古就闻名全国。
+				<%=food.getFood_description()%>	
 			</div>
 		</div>
-			
+		<%}  }%>		
 			
 	</div>
 </div>

@@ -12,14 +12,14 @@ import com.project.util.DBPoolUtil;
 public class FoodDao {
 	
 	public boolean addFood(Food f) throws Exception {
-
 		Connection conn = DBPoolUtil.getConnection();
-		String sql = "insert into tb_food(food_name,food_description,food_image_path,food_type) values (?,?,?,?)";
+		String sql = "insert into tb_food(food_name,food_description,food_image_path,food_type,food_price) values (?,?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, f.getFood_name());
 		pstmt.setString(2, f.getFood_description());
 		pstmt.setString(3, f.getFood_image_path());
 		pstmt.setInt(4, f.getFood_type());
+		pstmt.setInt(5, f.getFood_price());
 		pstmt.executeUpdate();
 		DBPoolUtil.closeConnection(conn);
 		return true;
@@ -41,10 +41,10 @@ public class FoodDao {
 		return num;
 	}
 	
-	public List<Food> listAllFoods() throws Exception {
+	public List<Food> listAllFoodsByFoodType(int food_type) throws Exception {
 		List<Food> foods = new ArrayList<Food>();
 		Connection conn = DBPoolUtil.getConnection();
-		String sql = "select * from tb_food";
+		String sql = "select * from tb_food where food_type="+food_type;
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet result = pstmt.executeQuery(sql);
 
@@ -55,6 +55,7 @@ public class FoodDao {
 			f.setFood_description(result.getString("food_description"));
 			f.setFood_image_path(result.getString("food_image_path"));
 			f.setFood_type(result.getInt("food_type"));
+			f.setFood_price(result.getInt("food_price"));
 			foods.add(f);
 		}
 		DBPoolUtil.closeConnection(conn);
