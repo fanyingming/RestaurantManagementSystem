@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.project.javabean.Food;
+import com.project.javabean.User;
 import com.project.util.DBPoolUtil;
 
 public class FoodDao {
@@ -70,5 +71,17 @@ public class FoodDao {
 		pstmt.executeUpdate();
 		DBPoolUtil.closeConnection(conn);
 		return true;
+	}
+	public double getFoodPriceByFoodId(int food_id) throws Exception {
+		double food_price=0;
+		Connection conn = DBPoolUtil.getConnection();
+		String sql = "select * from tb_food where food_id=" + food_id;
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet result = pstmt.executeQuery(sql);
+		if (result.next()) {
+			food_price = result.getDouble("food_price");
+		}
+		DBPoolUtil.closeConnection(conn);
+		return food_price;
 	}
 }

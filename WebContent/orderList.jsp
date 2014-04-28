@@ -1,4 +1,5 @@
-<%@ page language="java"  pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.project.javabean.*,com.project.util.*,
+com.project.service.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -35,6 +36,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 </head>
 <body>
+<%
+	OrderService orderService=new OrderService();
+	List<Order> list = orderService.listAllOrders(); 
+%>
 		<jsp:include page="header.jsp" flush="true" />
 		 
 <div class="body">
@@ -45,22 +50,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li class="t1" style="width:110px;">订单编号</li>
 			<li class="t2" style="width:110px;">订单桌位</li>
 			<li class="t3" style="width:110px;">订单菜品</li>
-			<li class="t4" style="width:110px;">订单酒水</li>
 			<li class="t5" style="width:110px;">订单价格</li>
 			<li class="t6" style="width:110px;">订单状态</li>
 			<li class="t7" style="width:150px;">状态设置</li>
 			<li class="t8" style="width:110px;">删除</li>
 
 		</ul>
+		<%
+		if(list!=null){
+			for(int i=0;i<list.size();i++){
+				Order order= (Order)list.get(i);
+				String order_state;
+				switch(order.getOrder_state()){
+				case 1:order_state="还未下锅";break;
+				case 2:order_state="正在准备";break;
+				case 3:order_state="制作完成";break;
+				default:order_state="unknown";break;
+				}
+		%>
 		<ul class="table interleaved_0" style="margin:auto;width:930px	;">
-				<li class="t1" style="width:110px;">1</li>
+				<li class="t1" style="width:110px;"><%=order.getOrder_id() %></li>
 				<li class="t2" style="width:110px;">2号桌</li>
 				<li class="t3" style="width:110px;"><a href="#">查看菜品</a></li>
-				<li class="t4" style="width:110px;"><a href="#">查看酒水</a></li>
-				<li class="t5" style="width:110px;"><a href="">1344</a></li>	
-				<li class="t6" style="width:110px;">正在准备</li>				
-				<li class="t7" style="width:150px;"><button>正在准备</button><button>准备完成</button></li>
-				<li class="t8" style="width:110px;"><button>删除</button></li>
+				<li class="t5" style="width:110px;"><a href=""><%=order.getOrder_price() %></a></li>	
+				<li class="t6" style="width:110px;"><%=order_state %></li>				
+				<li class="t7" style="width:150px;">
+				<%
+					if(order_state.equals("还未下锅")){
+				%>
+					<a href="orderServlet?type=begin_cooking&&order_id=<%=order.getOrder_id() %>">开始准备</a>
+					<%}else if(order_state.equals("正在准备")) {%>
+					<a href="orderServlet?type=finish_cooking&&order_id=<%=order.getOrder_id() %>">准备完成</a>
+					<%} %>
+				</li>
+				<li class="t8" style="width:110px;">
+					<a href="orderServlet?type=delete&&order_id=<%=order.getOrder_id() %>">删除</a>
+				</li>
 				
 		</ul>	
 		<div style="display:none;">
@@ -82,96 +107,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<button class="shouqiBtn" style="height:60px;margin:0px;margin-top:120px;">收起</button>
 			</div>
 		</div>
-		<ul class="table interleaved_0" style="margin:auto;width:930px	;">
-				<li class="t1" style="width:110px;">1</li>
-				<li class="t2" style="width:110px;">2号桌</li>
-				<li class="t3" style="width:110px;"><a href="#">查看菜品</a></li>
-				<li class="t4" style="width:110px;"><a href="#">查看酒水</a></li>
-				<li class="t5" style="width:110px;"><a href="">1344</a></li>	
-				<li class="t6" style="width:110px;">正在准备</li>				
-				<li class="t7" style="width:150px;"><button>正在准备</button><button>准备完成</button></li>
-				<li class="t8" style="width:110px;"><button>删除</button></li>
-				
-		</ul>	
-		<div style="display:none;">
-			<div class="orderDetail" style="margin-left:35px;border-right:1px solid #99aaff;margin-bottom:20px;">
-				<p><div class="dishName">锅包肉</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">红烧狮子头</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">酸辣白菜</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">油焖茄子</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">清蒸鲈鱼</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">宫保鸡丁</div><span> 1</span><span>份</span></p>
-			</div>
-			<div class="orderDetail" style="margin-bottom:20px;">
-				<p><div class="dishName">青岛啤酒</div><span> 10</span><span>瓶</span></p>
-				<p><div class="dishName">牛栏山二锅头</div><span> 5</span><span>瓶</span></p>
-				<p><div class="dishName">芬达</div><span> 1</span><span>瓶</span></p>
-				<p><div class="dishName">酸梅汤</div><span> 1</span><span>瓶</span></p>
-			</div>
-			<div style="width:38px;height:180px;float:left;">
-				<button class="shouqiBtn" style="height:60px;margin:0px;margin-top:120px;">收起</button>
-			</div>
-		</div>
-		<ul class="table interleaved_0" style="margin:auto;width:930px	;">
-				<li class="t1" style="width:110px;">1</li>
-				<li class="t2" style="width:110px;">2号桌</li>
-				<li class="t3" style="width:110px;"><a href="#">查看菜品</a></li>
-				<li class="t4" style="width:110px;"><a href="#">查看酒水</a></li>
-				<li class="t5" style="width:110px;"><a href="">1344</a></li>	
-				<li class="t6" style="width:110px;">正在准备</li>				
-				<li class="t7" style="width:150px;"><button>正在准备</button><button>准备完成</button></li>
-				<li class="t8" style="width:110px;"><button>删除</button></li>
-				
-		</ul>	
-		<div style="display:none;">
-			<div class="orderDetail" style="margin-left:35px;border-right:1px solid #99aaff;margin-bottom:20px;">
-				<p><div class="dishName">锅包肉</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">红烧狮子头</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">酸辣白菜</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">油焖茄子</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">清蒸鲈鱼</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">宫保鸡丁</div><span> 1</span><span>份</span></p>
-			</div>
-			<div class="orderDetail" style="margin-bottom:20px;">
-				<p><div class="dishName">青岛啤酒</div><span> 10</span><span>瓶</span></p>
-				<p><div class="dishName">牛栏山二锅头</div><span> 5</span><span>瓶</span></p>
-				<p><div class="dishName">芬达</div><span> 1</span><span>瓶</span></p>
-				<p><div class="dishName">酸梅汤</div><span> 1</span><span>瓶</span></p>
-			</div>
-			<div style="width:38px;height:180px;float:left;">
-				<button class="shouqiBtn" style="height:60px;margin:0px;margin-top:120px;">收起</button>
-			</div>
-		</div>
-		<ul class="table interleaved_0" style="margin:auto;width:930px	;">
-				<li class="t1" style="width:110px;">1</li>
-				<li class="t2" style="width:110px;">2号桌</li>
-				<li class="t3" style="width:110px;"><a href="#">查看菜品</a></li>
-				<li class="t4" style="width:110px;"><a href="#">查看酒水</a></li>
-				<li class="t5" style="width:110px;"><a href="">1344</a></li>	
-				<li class="t6" style="width:110px;">正在准备</li>				
-				<li class="t7" style="width:150px;"><button>正在准备</button><button>准备完成</button></li>
-				<li class="t8" style="width:110px;"><button>删除</button></li>
-				
-		</ul>	
-		<div style="display:none;">
-			<div class="orderDetail" style="margin-left:35px;border-right:1px solid #99aaff;margin-bottom:20px;">
-				<p><div class="dishName">锅包肉</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">红烧狮子头</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">酸辣白菜</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">油焖茄子</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">清蒸鲈鱼</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">宫保鸡丁</div><span> 1</span><span>份</span></p>
-			</div>
-			<div class="orderDetail" style="margin-bottom:20px;">
-				<p><div class="dishName">青岛啤酒</div><span> 10</span><span>瓶</span></p>
-				<p><div class="dishName">牛栏山二锅头</div><span> 5</span><span>瓶</span></p>
-				<p><div class="dishName">芬达</div><span> 1</span><span>瓶</span></p>
-				<p><div class="dishName">酸梅汤</div><span> 1</span><span>瓶</span></p>
-			</div>
-			<div style="width:38px;height:180px;float:left;">
-				<button class="shouqiBtn" style="height:60px;margin:0px;margin-top:120px;">收起</button>
-			</div>
-		</div>		
+			<%}  }%>		
+		
 	</div>
 </div>
 </div>

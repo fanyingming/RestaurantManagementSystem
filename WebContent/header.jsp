@@ -65,6 +65,7 @@ if(session.getAttribute("user")!=null){
 				case 3:
 			%>
 					<a onclick="nihao(this)" class="x " href="tableManage.jsp">开台管理</a>
+					<a onclick="nihao(this)" class="x " href="orderList.jsp">下单管理</a>
 					<a onclick="nihao(this)" class="x " href="postOrder.jsp">订单提交</a>
 				
 			<%	break;

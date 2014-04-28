@@ -14,7 +14,10 @@ public class FoodService {
 		return dao.addFood(u);
 
 	}
-
+	
+	public double getFoodPriceByFoodId(int food_id) throws Exception {
+		return dao.getFoodPriceByFoodId(food_id);
+	}
 
 	public boolean deleteFoodByFoodId(int food_id) throws Exception {
 		return dao.deleteFoodByFoodId(food_id);
