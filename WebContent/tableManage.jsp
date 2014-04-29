@@ -10,6 +10,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link type="text/css" href="style-1.css" rel="stylesheet" />
 <script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$(".t5 button").click(function()
+		{
+			var str=$(this).html();
+			if(str=="占用") $(this).parent().prev().html("<b>占用</b>");
+			else if(str=="空闲")  $(this).parent().prev().html("<b>空闲</b>");
+			else $(this).parent().parent().remove();
+		});
+	});
+</script>
+
+
+
 </head>
 <body>
 	<jsp:include page="header.jsp" flush="true" />
@@ -30,6 +45,106 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</ul>
 		<ul class="table interleaved_0" style="margin:auto; width:786px;">
 				<li class="t1" style="width:130px;">1</li>
+				<li class="t2" style="width:130px;">2人桌</li>
+				<li class="t3" style="width:130px;">李晓华</li>
+				<li class="t4" style="width:130px;">空闲</li>
+				
+				<li class="t5" style="width:130px;"><button>占用</button><button>空闲</button></li>
+				<li class="t5" style="width:130px;"><button>删除</button></li>
+				
+		</ul>	
+			<ul class="table interleaved_0" style="margin:auto; width:786px;">
+				<li class="t1" style="width:130px;">2</li>
+				<li class="t2" style="width:130px;">2人桌</li>
+				<li class="t3" style="width:130px;">李晓华</li>
+				<li class="t4" style="width:130px;">空闲</li>
+				
+				<li class="t5" style="width:130px;"><button>占用</button><button>空闲</button></li>
+				<li class="t5" style="width:130px;"><button>删除</button></li>
+				
+		</ul>	
+			<ul class="table interleaved_0" style="margin:auto; width:786px;">
+				<li class="t1" style="width:130px;">3</li>
+				<li class="t2" style="width:130px;">4人桌</li>
+				<li class="t3" style="width:130px;">李晓华</li>
+				<li class="t4" style="width:130px;">空闲</li>
+				
+				<li class="t5" style="width:130px;"><button>占用</button><button>空闲</button></li>
+				<li class="t5" style="width:130px;"><button>删除</button></li>
+				
+		</ul>	
+			<ul class="table interleaved_0" style="margin:auto; width:786px;">
+				<li class="t1" style="width:130px;">4</li>
+				<li class="t2" style="width:130px;">4人桌</li>
+				<li class="t3" style="width:130px;">李晓华</li>
+				<li class="t4" style="width:130px;">空闲</li>
+				
+				<li class="t5" style="width:130px;"><button>占用</button><button>空闲</button></li>
+				<li class="t5" style="width:130px;"><button>删除</button></li>
+				
+		</ul>	
+			<ul class="table interleaved_0" style="margin:auto; width:786px;">
+				<li class="t1" style="width:130px;">5</li>
+				<li class="t2" style="width:130px;">4人桌</li>
+				<li class="t3" style="width:130px;">李晓华</li>
+				<li class="t4" style="width:130px;">空闲</li>
+				
+				<li class="t5" style="width:130px;"><button>占用</button><button>空闲</button></li>
+				<li class="t5" style="width:130px;"><button>删除</button></li>
+				
+		</ul>	
+			<ul class="table interleaved_0" style="margin:auto; width:786px;">
+				<li class="t1" style="width:130px;">6</li>
+				<li class="t2" style="width:130px;">4人桌</li>
+				<li class="t3" style="width:130px;">李晓华</li>
+				<li class="t4" style="width:130px;">空闲</li>
+				
+				<li class="t5" style="width:130px;"><button>占用</button><button>空闲</button></li>
+				<li class="t5" style="width:130px;"><button>删除</button></li>
+				
+		</ul>	
+			<ul class="table interleaved_0" style="margin:auto; width:786px;">
+				<li class="t1" style="width:130px;">7</li>
+				<li class="t2" style="width:130px;">8人桌</li>
+				<li class="t3" style="width:130px;">李晓华</li>
+				<li class="t4" style="width:130px;">空闲</li>
+				
+				<li class="t5" style="width:130px;"><button>占用</button><button>空闲</button></li>
+				<li class="t5" style="width:130px;"><button>删除</button></li>
+				
+		</ul>	
+			<ul class="table interleaved_0" style="margin:auto; width:786px;">
+				<li class="t1" style="width:130px;">8</li>
+				<li class="t2" style="width:130px;">8人桌</li>
+				<li class="t3" style="width:130px;">李晓华</li>
+				<li class="t4" style="width:130px;">空闲</li>
+				
+				<li class="t5" style="width:130px;"><button>占用</button><button>空闲</button></li>
+				<li class="t5" style="width:130px;"><button>删除</button></li>
+				
+		</ul>	
+			<ul class="table interleaved_0" style="margin:auto; width:786px;">
+				<li class="t1" style="width:130px;">9</li>
+				<li class="t2" style="width:130px;">8人桌</li>
+				<li class="t3" style="width:130px;">李晓华</li>
+				<li class="t4" style="width:130px;">空闲</li>
+				
+				<li class="t5" style="width:130px;"><button>占用</button><button>空闲</button></li>
+				<li class="t5" style="width:130px;"><button>删除</button></li>
+				
+		</ul>	
+			<ul class="table interleaved_0" style="margin:auto; width:786px;">
+				<li class="t1" style="width:130px;">10</li>
+				<li class="t2" style="width:130px;">8人桌</li>
+				<li class="t3" style="width:130px;">李晓华</li>
+				<li class="t4" style="width:130px;">空闲</li>
+				
+				<li class="t5" style="width:130px;"><button>占用</button><button>空闲</button></li>
+				<li class="t5" style="width:130px;"><button>删除</button></li>
+				
+		</ul>	
+			<ul class="table interleaved_0" style="margin:auto; width:786px;">
+				<li class="t1" style="width:130px;">11</li>
 				<li class="t2" style="width:130px;">8人桌</li>
 				<li class="t3" style="width:130px;">李晓华</li>
 				<li class="t4" style="width:130px;">空闲</li>

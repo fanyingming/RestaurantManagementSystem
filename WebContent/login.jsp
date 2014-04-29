@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 <div class="body" style="height:500px;">
 		<div class="body_bg">
-			<div style="width:49%;margin:0px;float:left;border-right:1px solid;border-right-color:#77eeff;height:400px;">
+			<div style="width:100%;margin:0px;float:left;border-right:1px solid;border-right-color:#77eeff;height:400px;margin-top:20px;">
 				<form name="form1" method="post" action="UserServlet?type=login" style="padding:30px;margin:auto;text-align:center;">
 				<p style="width:100%;font-family:'微软雅黑';font-size:30px;">请登录</p>
 				<div class="logItem">用户名：
@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						border-color: #22a3ff;
 						height: 40px;" />
 				</div>
-				<input type="submit" class="postInfo" style="margin-right:73px;" value="确认登录" />
+				<input type="submit" class="postInfo" style="float:none;margin-right:-73px;" value="确认登录" />
 				<%
 				if(flag){
   	   			%>
@@ -62,13 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        			<% } %>
 				</form>
 			</div>
-		<div style="width:50%;margin:0px;float:left;height:400px;">
-			以下账号仅供测试使用:<br>
-			管理员: admin admin<br>
-			餐厅经理:宇哥 123456<br>
-			服务员：小荣荣 123456<br>
-			厨师：存哥 123456<br>
-		</div>
+
 		</div>
 	</div>
 	
