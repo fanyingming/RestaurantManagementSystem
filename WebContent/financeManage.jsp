@@ -1,4 +1,5 @@
-<%@ page language="java"  pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.project.javabean.*,com.project.util.*,
+com.project.service.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -12,6 +13,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="jquery.min.js"></script>
 </head>
 <body>
+<%
+	OrderService orderService=new OrderService();
+	FoodService foodService=new FoodService();
+	
+	List<Order> list = orderService.listAllOrders(); 
+%>
 	<jsp:include page="header.jsp" flush="true" />
 	
 <div class="body">
@@ -25,15 +32,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li class="t4" style="width:195px;">删除记录</li>
 
 		</ul>
+		<%
+		if(list!=null){
+			for(int i=0;i<list.size();i++){
+				Order order= (Order)list.get(i);
+		%>
 		<ul class="table interleaved_0" style="margin:auto; width:786px;">
-				<li class="t1" style="width:195px;">1</li>
-				<li class="t2" style="width:195px;">2014-04-29</li>
-				<li class="t3" style="width:195px;">1554 元</li>
-				<li class="t4" style="width:195px;"><button>删除</button></li>
-
-				
+				<li class="t1" style="width:195px;"><%=order.getOrder_id() %></li>
+				<li class="t2" style="width:195px;"><%=order.getOrder_date() %></li>
+				<li class="t3" style="width:195px;"><%=order.getOrder_price() %> 元</li>
+				<li class="t4" style="width:195px;"><a href="OrderServlet?type=delete&&order_id=<%=order.getOrder_id()%>&&which=finance">删除</a></li>
 		</ul>	
-			
+		<%}} %>	
 			
 			
 	</div>

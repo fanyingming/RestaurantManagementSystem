@@ -73,7 +73,11 @@ public class OrderServlet extends HttpServlet {
 			else if (type.equals("delete")) {
 				int order_id = Integer.parseInt(request.getParameter("order_id"));
 				service.deleteOrderByOrderId(order_id);
-				response.sendRedirect("orderList.jsp");
+				String finance = request.getParameter("which");
+				if(finance==null)
+					response.sendRedirect("orderList.jsp");
+				else
+					response.sendRedirect("financeManage.jsp");
 			}
 			else {
 				response.sendRedirect("error.jsp");
