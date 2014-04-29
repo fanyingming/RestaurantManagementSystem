@@ -25,7 +25,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var strs = new Array();
 			strs = $(this).html().split(" ");
 			
-			
 			var string="<div class='orderItem'><div style='width:165px;float:left;'>"+strs[0]+"</div><div class='price' style='width:60px;float:left;'>"+strs[1]+"元</div>";
 			string=string+"<div class='number' style='float:left;'>1</div><div style='float:left;'>份</div><button onclick='AddNumber(this)'>+</button><button onclick='MinNumber(this)'>-</button></div>";
 			
@@ -117,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					Food food= (Food)drink_list.get(i);
 			%>
 				<div class="inter_info">
-					<button ><%=food.getFood_name() %>  <%=food.getFood_price() %> 元</button>
+					<button ><%=food.getFood_name() %> <%=food.getFood_price() %> 元</button>
 				</div>
 			<%}  }%>		
 			</div>
