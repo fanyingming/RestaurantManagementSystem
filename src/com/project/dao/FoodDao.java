@@ -20,7 +20,7 @@ public class FoodDao {
 		pstmt.setString(2, f.getFood_description());
 		pstmt.setString(3, f.getFood_image_path());
 		pstmt.setInt(4, f.getFood_type());
-		pstmt.setInt(5, f.getFood_price());
+		pstmt.setDouble(5, f.getFood_price());
 		pstmt.executeUpdate();
 		DBPoolUtil.closeConnection(conn);
 		return true;

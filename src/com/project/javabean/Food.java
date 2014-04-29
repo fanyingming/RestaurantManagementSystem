@@ -7,14 +7,14 @@ public class Food {
 	private String food_description;
 	private String food_image_path;
 	private int food_type;
-	private int food_price;
+	private double food_price;
 	
 	
 	
-	public int getFood_price() {
+	public double getFood_price() {
 		return food_price;
 	}
-	public void setFood_price(int food_price) {
+	public void setFood_price(double food_price) {
 		this.food_price = food_price;
 	}
 	public int getFood_id() {
