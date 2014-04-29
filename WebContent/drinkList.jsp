@@ -36,17 +36,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	function addMember()
 	{
-		
-	
+		var str0="<form action='FoodServlet?type=add&&which=food' method='post' enctype='multipart/form-data'>";
 		var str1="<ul class='table interleaved_0' style='margin:auto; width:786px;'>";
-		var str2="<li class='t1' style='width:130px;'><input type='text' /></li>";
-		var str3="<li class='t2' style='width:130px;'><select><option value ='baijiu'>白酒</option><option value ='pijiu'>啤酒</option><option value ='饮料'>饮料</option></select></li>";
-		var str4="<li class='t3' style='width:130px;'><input type='text' /></li>";
-		var str5="<li class='t4' style='width:130px;'><input type='text' /></li>";
-		var str6="<li class='t5' style='width:130px;'></li>";
+		var str2="<li class='t1' style='width:130px;'><input type='text' style='border:none;text-align:center;' placeholder='编号'/></li>";
+		var str3="<li class='t2' style='width:130px;'><input type='text' style='border:none;text-align:center;' placeholder='类型'/></li>";
+		var str4="<li class='t3' style='width:130px;'><input type='text' style='border:none;text-align:center;' name='food_name' placeholder='酒水名'/></li>";
+
+		var str5="<li class='t4' style='width:130px;'><input type='text' style='border:none;text-align:center;' name='food_price' placeholder='价格'/></li>";
+		var str6="<li class='t5' style='width:130px;'><input type='file' style='border:none;text-align:center;' name='profile' id='profile' /></li>";
+		
 		var str7="<li class='t6' style='width:130px;'><button>保存</button></li>";
 		var str8="</ul>";
-		$("#contentArea").append(str1+str2+str3+str4+str5+str6+str7+str8);
+		var str9="<textarea rows='5' style='margin-left:106px;width:786px;text-align:center;' name='food_description' placeholder='添加描述' />";
+		
+		var str10="</form>";
+		$("#contentArea").append(str0+str1+str2+str3+str4+str5+str6+str7+str8+str9+str10);
 	}
 </script>
 </head>
