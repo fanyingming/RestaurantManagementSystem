@@ -16,7 +16,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	{
 		$(".orderPanel_menu .inter_info button").click(function()
 		{
-		
+			var strID=$(this).prev().html();
+			
 			var orderNO=$("#inputOrderNO").val();
 			var tableNO=$("#inputTableNO").val();
 			$("#orderNO").html(orderNO);
@@ -25,22 +26,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var strs = new Array();
 			strs = $(this).html().split(" ");
 			
-			var string="<div class='orderItem'><div style='width:165px;float:left;'>"+strs[0]+"</div><div class='price' style='width:60px;float:left;'>"+strs[1]+"元</div>";
+			var string="<div class='orderItem'><div class='idtitle' style='display:none;'>"+strID+"</div><div style='width:165px;float:left;'>"+strs[0]+"</div><div class='price' style='width:60px;float:left;'>"+strs[1]+"元</div>";
 			string=string+"<div class='number' style='float:left;'>1</div><div style='float:left;'>份</div><button onclick='AddNumber(this)'>+</button><button onclick='MinNumber(this)'>-</button></div>";
 			
 			$("#showOrder").append(string);	
 		});
 		$(".orderPanel_menu_wine .inter_info button").click(function()
 		{
+			var strID=$(this).prev().html();
 			var strs = new Array();
 			strs = $(this).html().split(" ");
 			
-			var string="<div class='orderItem'><div style='width:165px;float:left;'>"+strs[0]+"</div><div class='price' style='width:60px;float:left;'>"+strs[1]+"元</div>";
+			var string="<div class='orderItem'><div class='idtitle' style='display:none;'>"+strID+"</div><div style='width:165px;float:left;'>"+strs[0]+"</div><div class='price' style='width:60px;float:left;'>"+strs[1]+"元</div>";
 			string=string+"<div class='number' style='float:left;'>1</div><div style='float:left;'>份</div><button onclick='AddNumber(this)'>+</button><button onclick='MinNumber(this)'>-</button></div>";
 			$("#showOrder_wine").append(string);
 		});
 	
 	});
+	function postOrderOK()
+	{
+		totalPrice();
+		var ids = new Array();
+		var numbers=new Array();
+		var totalprice="";
+		totalprice=$("#totalprice").html();
+		
+		var counterID=0;
+		var counterNUM=0;
+		$(".idtitle").each(function(){
+			ids[counterID++]=$(this).html();			
+		});
+		$(".number").each(function(){
+			numbers[counterNUM++]=$(this).html();
+		});
+		
+		var length=ids.length;
+		var strReturn="";
+		strReturn+=$("#tableNO").html()+";";
+		for(var i=0;i<length;i++)
+		{
+			strReturn+=ids[i]+","+numbers[i]+";";
+		}
+		strReturn+=totalprice;
+		alert(strReturn);
+		
+	}
 	function AddNumber(id)
 	{
 		var pointer=$(id).prev().prev();
@@ -74,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			price=price*parseInt($(this).next().html());
 			totalPrice=totalPrice+price;
 		});
-		$("#showTotalPrice").html("总计:"+totalPrice+"元");
+		$("#showTotalPrice").html("总计:<span id='totalprice'>"+totalPrice+"</span>元");
 		
 	}
 </script>
@@ -104,6 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					Food food= (Food)food_list.get(i);
 			%>
 				<div class="inter_info">
+					<span style="display:none;"> <%=food.getFood_id() %> </span>
 					<button ><%=food.getFood_name() %> <%=food.getFood_price() %> 元</button>
 				</div>
 			<%}  }%>							
@@ -116,6 +147,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					Food food= (Food)drink_list.get(i);
 			%>
 				<div class="inter_info">
+					<span style="display:none;"> <%=food.getFood_id() %> </span>
 					<button ><%=food.getFood_name() %> <%=food.getFood_price() %> 元</button>
 				</div>
 			<%}  }%>		
@@ -137,9 +169,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				
 			</div>
-			<div id="showTotalPrice" style="width:150px;float:left;height:60px;margin-top:27px;font-size:25px;">
+			<div id="showTotalPrice" style="width:100%;text-align:center;height:60px;margin-top:27px;font-size:25px;">
 			</div>
-			<input type="submit" class="postInfo" style="margin-right:63px;" onclick="totalPrice();" value="确认订单" />
+			<input type="submit" class="postInfo" style="margin-right:33px;width:160px;margin-top:50px;" onclick="totalPrice();" value="计算总价" />
+			<input type="submit" class="postInfo" style="margin-right:33px;width:160px;margin-top:50px;" onclick="postOrderOK();" value="提交订单" />
 		</div>
 	</div>
 
