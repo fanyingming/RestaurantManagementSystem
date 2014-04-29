@@ -47,7 +47,7 @@ public class OrderServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		//public use info.
-		int order_id = Integer.parseInt(request.getParameter("order_id"));
+	//	int order_id = Integer.parseInt(request.getParameter("order_id"));
 		String type = request.getParameter("type");
 		
 		OrderService service = new OrderService();
@@ -58,20 +58,20 @@ public class OrderServlet extends HttpServlet {
 				service.addOrder(orderString);
 				response.sendRedirect("orderList.jsp");
 			} else if (type.equals("begin_cooking")) {
-			//	int order_id = Integer.parseInt(request.getParameter("order_id"));
+				int order_id = Integer.parseInt(request.getParameter("order_id"));
 				Order order = service.getOrderByOrderId(order_id);
 				order.setOrder_state(2);
 				service.modifyOrderState(order);
 				response.sendRedirect("orderList.jsp");
 			}else if (type.equals("finish_cooking")) {
-			//	int order_id = Integer.parseInt(request.getParameter("order_id"));
+				int order_id = Integer.parseInt(request.getParameter("order_id"));
 				Order order = service.getOrderByOrderId(order_id);
 				order.setOrder_state(3);
 				service.modifyOrderState(order);
 				response.sendRedirect("orderList.jsp");
 			}
 			else if (type.equals("delete")) {
-			//	int order_id = Integer.parseInt(request.getParameter("order_id"));
+				int order_id = Integer.parseInt(request.getParameter("order_id"));
 				service.deleteOrderByOrderId(order_id);
 				response.sendRedirect("orderList.jsp");
 			}
