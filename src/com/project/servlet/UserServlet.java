@@ -68,7 +68,7 @@ public class UserServlet extends HttpServlet {
 					String jump_url="";
 					switch(user.getUser_type())
 					{
-					case 1:jump_url="userManage.jsp";break;
+					case 1:jump_url="postOrder.jsp";break;
 					case 2:jump_url="menuList.jsp";break;
 					case 3:jump_url="postOrder.jsp";break;
 					case 4:jump_url="orderList.jsp";break;

@@ -55,8 +55,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	FoodService foodService=new FoodService();
 	List<Food> list = foodService.listAllDrinks(); 
 %>
-		<jsp:include page="header.jsp" flush="true" />
 	
+	<jsp:include page="header.jsp" flush="true" />
 <div class="body">
 <div class="body_bg">
 	<div style="float:none;margin-left:105px;width:100px;height:40px;margin-top:30px;margin-bottom:5px;">
