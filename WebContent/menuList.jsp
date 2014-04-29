@@ -35,11 +35,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	function addMember()
 	{	
-		var str0="<form action='FoodServlet?type=addFood' method='post' enctype='multipart/form-data'>"
+		var str0="<form action='FoodServlet?type=add&&which=food' method='post' enctype='multipart/form-data'>"
 		var str1="<ul class='table interleaved_0' style='margin:auto; width:786px;'>";
 		var str2="<li class='t1' style='width:130px;'><input type='text' name='food_name'/></li><br>";
 		var str3="<li class='t2' style='width:130px;'><input type='text' name='food_price'/></li>";
-		var str4="<li class='t3' style='width:130px;'><input name='book_image_path' type='file' /></li>";
+		var str4="<li class='t3' style='width:130px;'><input type='file' name='profile' id='profile' /></li>";
 		var str5="<li class='t4' style='width:130px;'><textarea rows='5' name='food_description' /></li>";
 		var str6="<li class='t5' style='width:130px;'></li>";
 		var str7="<li class='t6' style='width:130px;'><button>保存</button></li>";

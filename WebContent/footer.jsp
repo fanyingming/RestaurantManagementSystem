@@ -7,10 +7,10 @@
 </head>
 <body>
 <div class="foot">
-	<span>&#169; 2013-2014 <a href="index.jsp">小楼听雨餐饮管理系统</a> &nbsp; </span>
+	<span>&#169; 2013-2014 <a href="login.jsp">小楼听雨餐饮管理系统</a> &nbsp; </span>
     <span>
-    	<a rel="nofollow" href="index.jsp">关于我们</a> |
-	<a href="index.jsp">合作伙伴</a> |
+    	<a rel="nofollow" href="login.jsp">关于我们</a> |
+	<a href="login.jsp">合作伙伴</a> |
 	</span>
 </div>
 </body>
