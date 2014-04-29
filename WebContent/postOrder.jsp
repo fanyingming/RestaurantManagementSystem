@@ -145,10 +145,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(drink_list!=null){
 				for(int i=0;i<drink_list.size();i++){
 					Food food= (Food)drink_list.get(i);
+					double price = food.getFood_price();
 			%>
 				<div class="inter_info">
 					<span style="display:none;"> <%=food.getFood_id() %> </span>
-					<button ><%=food.getFood_name() %> <%=food.getFood_price() %> 元</button>
+					<button ><%=food.getFood_name() %> <%=price %> 元</button>
 				</div>
 			<%}  }%>		
 			</div>
