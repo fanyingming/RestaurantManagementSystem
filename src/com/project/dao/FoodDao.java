@@ -84,4 +84,21 @@ public class FoodDao {
 		DBPoolUtil.closeConnection(conn);
 		return food_price;
 	}
+	
+	public Food getFoodByFoodId(int food_id) throws Exception {
+		Food food = new Food();
+		Connection conn = DBPoolUtil.getConnection();
+		String sql = "select * from tb_food where food_id=" + food_id;
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet result = pstmt.executeQuery(sql);
+		if (result.next()) {
+			food.setFood_price(result.getDouble("food_price"));
+			food.setFood_description(result.getString("food_description"));
+			food.setFood_id(food_id);
+			food.setFood_name(result.getString("food_name"));
+			food.setFood_type(result.getInt("food_type"));
+		}
+		DBPoolUtil.closeConnection(conn);
+		return food;
+	}
 }

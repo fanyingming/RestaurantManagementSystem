@@ -19,10 +19,8 @@ public class OrderDao {
 		String sql = "insert into tb_order(order_state,order_date) values (?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, o.getOrder_state());
-		Date now = new Date();
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		String nowTime = df.format(now);
-		pstmt.setString(2,nowTime );
+		
+		pstmt.setString(2,o.getOrder_date() );
 		pstmt.executeUpdate();
 		DBPoolUtil.closeConnection(conn);
 		return true;
@@ -30,8 +28,8 @@ public class OrderDao {
 	public int getOrderIdByOrder(Order o) throws Exception {
 		int order_id=-1;
 		Connection conn = DBPoolUtil.getConnection();
-		String sql = "select * from tb_order where order_date=" + o.getOrder_date()+
-				" and order_state="+o.getOrder_state()+" and order_price="+o.getOrder_price();
+		String sql = "select * from tb_order where order_date='" + o.getOrder_date()+
+				"' and order_state="+o.getOrder_state();
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet result = pstmt.executeQuery(sql);
 		if (result.next()) {

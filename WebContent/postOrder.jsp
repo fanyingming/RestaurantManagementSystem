@@ -67,9 +67,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		{
 			strReturn+=ids[i]+","+numbers[i]+";";
 		}
-		strReturn+=totalprice;
-		alert(strReturn);
-		
+		//strReturn+=totalprice;
+	//	alert(strReturn);
+		window.location.href="OrderServlet?type=add&&orderString="+strReturn;
 	}
 	function AddNumber(id)
 	{
@@ -134,7 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					Food food= (Food)food_list.get(i);
 			%>
 				<div class="inter_info">
-					<span style="display:none;"> <%=food.getFood_id() %> </span>
+					<span style="display:none;"><%=food.getFood_id() %></span>
 					<button ><%=food.getFood_name() %> <%=food.getFood_price() %> 元</button>
 				</div>
 			<%}  }%>							
@@ -145,10 +145,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(drink_list!=null){
 				for(int i=0;i<drink_list.size();i++){
 					Food food= (Food)drink_list.get(i);
+					double price = food.getFood_price();
 			%>
 				<div class="inter_info">
-					<span style="display:none;"> <%=food.getFood_id() %> </span>
-					<button ><%=food.getFood_name() %> <%=food.getFood_price() %> 元</button>
+					<span style="display:none;"><%=food.getFood_id()%></span>
+					<button ><%=food.getFood_name() %> <%=price %> 元</button>
 				</div>
 			<%}  }%>		
 			</div>

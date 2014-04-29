@@ -38,6 +38,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <%
 	OrderService orderService=new OrderService();
+	FoodService foodService=new FoodService();
+	
 	List<Order> list = orderService.listAllOrders(); 
 %>
 		<jsp:include page="header.jsp" flush="true" />
@@ -60,6 +62,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		if(list!=null){
 			for(int i=0;i<list.size();i++){
 				Order order= (Order)list.get(i);
+				List<OrderDetail> orderDetails = orderService.listAllOrderDetailsByOrderId(order.getOrder_id());
+				
 				String order_state;
 				switch(order.getOrder_state()){
 				case 1:order_state="还未下锅";break;
@@ -78,30 +82,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<%
 					if(order_state.equals("还未下锅")){
 				%>
-					<a href="orderServlet?type=begin_cooking&&order_id=<%=order.getOrder_id() %>">开始准备</a>
+					<a href="OrderServlet?type=begin_cooking&&order_id=<%=order.getOrder_id() %>">开始准备</a>
 					<%}else if(order_state.equals("正在准备")) {%>
-					<a href="orderServlet?type=finish_cooking&&order_id=<%=order.getOrder_id() %>">准备完成</a>
+					<a href="OrderServlet?type=finish_cooking&&order_id=<%=order.getOrder_id() %>">准备完成</a>
 					<%} %>
 				</li>
 				<li class="t8" style="width:110px;">
-					<a href="orderServlet?type=delete&&order_id=<%=order.getOrder_id() %>">删除</a>
+					<a href="OrderServlet?type=delete&&order_id=<%=order.getOrder_id() %>">删除</a>
 				</li>
 				
 		</ul>	
 		<div style="display:none;">
 			<div class="orderDetail" style="margin-left:35px;border-right:1px solid #99aaff;margin-bottom:20px;">
-				<p><div class="dishName">锅包肉</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">红烧狮子头</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">酸辣白菜</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">油焖茄子</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">清蒸鲈鱼</div><span> 1</span><span>份</span></p>
-				<p><div class="dishName">宫保鸡丁</div><span> 1</span><span>份</span></p>
+				<% 
+				for(int j=0;j<orderDetails.size();j++){
+					OrderDetail od = orderDetails.get(j);
+					Food food = foodService.getFoodByFoodId(od.getFood_id());
+					if(food.getFood_type()==1){
+				%>
+				<p><div class="dishName"><%=food.getFood_name() %></div><span> <%=od.getOrder_detail_num() %></span><span>份</span></p>
+				<%}} %>
 			</div>
 			<div class="orderDetail" style="margin-bottom:20px;">
-				<p><div class="dishName">青岛啤酒</div><span> 10</span><span>瓶</span></p>
-				<p><div class="dishName">牛栏山二锅头</div><span> 5</span><span>瓶</span></p>
-				<p><div class="dishName">芬达</div><span> 1</span><span>瓶</span></p>
-				<p><div class="dishName">酸梅汤</div><span> 1</span><span>瓶</span></p>
+				<% 
+				for(int j=0;j<orderDetails.size();j++){
+					OrderDetail od = orderDetails.get(j);
+					Food food = foodService.getFoodByFoodId(od.getFood_id());
+					if(food.getFood_type()==2){
+				%>
+				<p><div class="dishName"><%=food.getFood_name() %></div><span> <%=od.getOrder_detail_num() %></span><span>瓶</span></p>
+				<%}} %>
 			</div>
 			<div style="width:38px;height:180px;float:left;">
 				<button class="shouqiBtn" style="height:60px;margin:0px;margin-top:120px;">收起</button>

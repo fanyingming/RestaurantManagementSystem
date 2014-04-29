@@ -9,8 +9,6 @@ public class Food {
 	private int food_type;
 	private double food_price;
 	
-	
-	
 	public double getFood_price() {
 		return food_price;
 	}

@@ -36,27 +36,33 @@ if(session.getAttribute("user")!=null){
 			</div>
 			<div style="width:50%;float:left;">
 			
-			<span style="float:right;">欢迎 <%=user.getUser_name()%>, 您的职位是 <%=user_position %>&nbsp;[<a href="UserServlet?type=exit" id="exit-button">退出</a>]</span>   
+			<span style="float:right;">
+			<%if(user!=null){ %>
+			欢迎 <%=user.getUser_name()%>, 您的职位是 <%=user_position %>&nbsp;[<a href="UserServlet?type=exit" id="exit-button">退出</a>]
+			<%} %>
+			</span>   
 
 			</div>
 			<div class="menu">
 			<%
+			if(user!=null)
 				switch(user.getUser_type())
 				{ 
 				case 1:
 			%>
+					<a onclick="nihao(this)" class="x " href="postOrder.jsp">订单提交</a>
 					<a onclick="nihao(this)" class="x " href="userManage.jsp">系统管理</a>
 					<a onclick="nihao(this)" class="x " href="menuList.jsp">菜谱管理</a>
 					<a onclick="nihao(this)" class="x " href="drinkList.jsp">酒水管理</a>
 					<a onclick="nihao(this)" class="x " href="financeManage.jsp">财务管理</a>	
 					<a onclick="nihao(this)" class="x " href="orderList.jsp">下单管理</a>
 					<a onclick="nihao(this)" class="x " href="tableManage.jsp">开台管理</a>
-					<a onclick="nihao(this)" class="x " href="postOrder.jsp">订单提交</a>
+
 			<%	break;
 				case 2:
 			%>		
-					<a onclick="nihao(this)" class="x " href="menuList.jsp">菜谱管理</a>
 					<a onclick="nihao(this)" class="x " href="drinkList.jsp">酒水管理</a>
+					<a onclick="nihao(this)" class="x " href="menuList.jsp">菜谱管理</a>
 					<a onclick="nihao(this)" class="x " href="financeManage.jsp">财务管理</a>	
 					<a onclick="nihao(this)" class="x " href="orderList.jsp">下单管理</a>
 					<a onclick="nihao(this)" class="x " href="tableManage.jsp">开台管理</a>
