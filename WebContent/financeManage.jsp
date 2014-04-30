@@ -45,7 +45,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</ul>	
 		<%}} %>	
 			
-			
 	</div>
 </div>
 </div>

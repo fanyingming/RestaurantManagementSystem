@@ -8,7 +8,23 @@ public class Food {
 	private String food_image_path;
 	private int food_type;
 	private double food_price;
+	private String cook;
+	private String drink_type;
 	
+	
+	
+	public String getCook() {
+		return cook;
+	}
+	public void setCook(String cook) {
+		this.cook = cook;
+	}
+	public String getDrink_type() {
+		return drink_type;
+	}
+	public void setDrink_type(String drink_type) {
+		this.drink_type = drink_type;
+	}
 	public double getFood_price() {
 		return food_price;
 	}
