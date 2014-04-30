@@ -11,6 +11,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link type="text/css" href="style-1.css" rel="stylesheet" />
 <script type="text/javascript" src="jquery.min.js"></script>
+<script typpe="text/javascript">
+$(document).ready(function(){
+	var total=0;
+	$(".interleaved_0 .t3").each(function()
+	{
+		total+=parseInt($(this).html());
+	});
+	$("#total").html(total);
+});
+</script>
 </head>
 <body>
 <%
@@ -44,7 +54,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li class="t4" style="width:195px;"><a href="OrderServlet?type=delete&&order_id=<%=order.getOrder_id()%>&&which=finance">删除</a></li>
 		</ul>	
 		<%}} %>	
-			
+		<div style="text-align:right;font-size:32px;font-family:'微软雅黑';padding-right:100px;">
+		共收入：<span id="total"></span>.0元
+		</div>	
 			
 	</div>
 </div>
