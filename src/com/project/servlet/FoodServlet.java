@@ -58,6 +58,7 @@ public class FoodServlet extends HttpServlet {
 	//	HttpSession session = request.getSession();
 		try {
 			if (type.equals("add")) {
+				
 				UploadUtil uploadUtil = new UploadUtil(request);
 				String food_name = uploadUtil.getParameter("food_name");
 				String food_description = uploadUtil.getParameter("food_description");
@@ -72,8 +73,8 @@ public class FoodServlet extends HttpServlet {
 					name = String.valueOf(calendar.getTimeInMillis())
 							+ food_image_path.substring(food_image_path.lastIndexOf("."));
 					
-					String filepath = request.getRealPath("\\FoodImages")
-							+ "\\" + name;
+					String filepath = request.getRealPath("FoodImages")
+							+ "/" + name;
 				
 					File file = new File(filepath);
 					OutputStream outStream = new FileOutputStream(file);
@@ -87,23 +88,39 @@ public class FoodServlet extends HttpServlet {
 				food.setFood_image_path(name);
 				food.setFood_name(food_name);
 				food.setFood_price(food_price);
-				if (which.equals("food"))
+				if (which.equals("food")){
+					String cook = uploadUtil.getParameter("cook");
 					food.setFood_type(1);
+					food.setCook(cook);
+					service.addFood(food);		
+					response.sendRedirect("menuList.jsp");
+				}
 				else
+				{
+					String drink_type = uploadUtil.getParameter("drink_type");
+					
 					food.setFood_type(2);
-				service.addFood(food);		
-				response.sendRedirect("menuList.jsp");
+					food.setDrink_type(drink_type);
+					service.addFood(food);		
+					response.sendRedirect("drinkList.jsp");
+				}
+				
 			} 
 			else if (type.equals("delete")) {
-			//	int user_id = Integer.parseInt(request.getParameter("user_id"));
-			//	service.deleteUserByUid(user_id);
-			//	response.sendRedirect("userManage.jsp");
+				int food_id = Integer.parseInt(request.getParameter("food_id"));
+				service.deleteFoodByFoodId(food_id);
+				//delete image file.
+		//		File file = new File(imgPath);
+		//		if (file.isFile() && file.exists()) {
+		//			file.delete();
+		//		}
+				
+				if (which.equals("food"))
+					response.sendRedirect("menuList.jsp");
+				else
+					response.sendRedirect("drinkList.jsp");
+					
 			}
-			else if (type.equals("exit")) {
-			//	session.invalidate();
-			//	request.getRequestDispatcher("login.jsp").forward(request,
-			//			response);
-			} 
 			else {
 				response.sendRedirect("error.jsp");
 				}

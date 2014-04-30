@@ -14,13 +14,15 @@ public class FoodDao {
 	
 	public boolean addFood(Food f) throws Exception {
 		Connection conn = DBPoolUtil.getConnection();
-		String sql = "insert into tb_food(food_name,food_description,food_image_path,food_type,food_price) values (?,?,?,?,?)";
+		String sql = "insert into tb_food(food_name,food_description,food_image_path,food_type,food_price,cook,drink_type) values (?,?,?,?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, f.getFood_name());
 		pstmt.setString(2, f.getFood_description());
 		pstmt.setString(3, f.getFood_image_path());
 		pstmt.setInt(4, f.getFood_type());
 		pstmt.setDouble(5, f.getFood_price());
+		pstmt.setString(6, f.getCook());
+		pstmt.setString(7, f.getDrink_type());
 		pstmt.executeUpdate();
 		DBPoolUtil.closeConnection(conn);
 		return true;
@@ -57,6 +59,8 @@ public class FoodDao {
 			f.setFood_image_path(result.getString("food_image_path"));
 			f.setFood_type(result.getInt("food_type"));
 			f.setFood_price(result.getInt("food_price"));
+			f.setCook(result.getString("cook"));
+			f.setDrink_type(result.getString("drink_type"));
 			foods.add(f);
 		}
 		DBPoolUtil.closeConnection(conn);
@@ -97,6 +101,8 @@ public class FoodDao {
 			food.setFood_id(food_id);
 			food.setFood_name(result.getString("food_name"));
 			food.setFood_type(result.getInt("food_type"));
+			food.setCook(result.getString("cook"));
+			food.setDrink_type(result.getString("drink_type"));
 		}
 		DBPoolUtil.closeConnection(conn);
 		return food;

@@ -35,16 +35,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	function addMember()
 	{	
-		var str0="<form action='FoodServlet?type=add&&which=food' method='post' enctype='multipart/form-data'>";
+		var str0="<form name='addForm' action='FoodServlet?type=add&&which=food' method='post' enctype='multipart/form-data'>";
 		var str1="<ul class='table interleaved_0' style='margin:auto; width:786px;'>";
 		var str2="<li class='t1' style='width:130px;'><input type='text' style='border:none;text-align:center;' placeholder='编号'/></li>";
 		var str3="<li class='t2' style='width:130px;'><input type='text' style='border:none;text-align:center;' name='food_name' placeholder='菜品名'/></li>";
 		
-		var str4="<li class='t3' style='width:130px;'><input type='text' style='border:none;text-align:center;' placeholder='厨师姓名'/></li>";
+		var str4="<li class='t3' style='width:130px;'><input type='text' style='border:none;text-align:center;' name='cook' placeholder='厨师姓名'/></li>";
 		var str5="<li class='t4' style='width:130px;'><input type='text' style='border:none;text-align:center;' name='food_price' placeholder='价格'/></li>";
 		var str6="<li class='t5' style='width:130px;'><input type='file' style='border:none;text-align:center;' name='profile' id='profile' /></li>";
 		
-		var str7="<li class='t6' style='width:130px;'><button>保存</button></li>";
+		var str7="<li class='t6' style='width:130px;'><input type='submit' value='保存'/></li>";
 		var str8="</ul>";
 		var str9="<textarea rows='5' style='margin-left:106px;width:786px;text-align:center;' name='food_description' placeholder='添加描述' />";
 		
@@ -83,15 +83,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<ul class="table interleaved_0" style="margin:auto; width:786px;">
 				<li class="t1" style="width:130px;"><%=food.getFood_id()%></li>
 				<li class="t2" style="width:130px;"><%=food.getFood_name()%></li>
-				<li class="t3" style="width:130px;">李达华</li>
+				<li class="t3" style="width:130px;"><%=food.getCook() %></li>
 				<li class="t4" style="width:130px;"><%=food.getFood_price() %></li>
 				<li class="t5" style="width:130px;"><a href="#">查看</a></li>
-				<li class="t6" style="width:130px;"><button>删除</button></li>
+				<li class="t6" style="width:130px;"><a href="FoodServlet?type=delete&&food_id=<%=food.getFood_id()%>&&which=food">删除</a></li>
 		</ul>
 		
 		<div style="margin:auto; width:786px;border:1px solid #3388FF;height:180px;display:none;">
 			<div style="width:180px;float:left;height:180px;">
-				<img style="width:180px;height:180px;" src="image/zrdft.jpg" />
+				<img style="width:180px;height:180px;" src="FoodImages/<%=food.getFood_image_path() %>" />
 			</div>
 			<div style="float:left;height:140px;width:546px;padding:30px;">
 				<%=food.getFood_description()%>	
