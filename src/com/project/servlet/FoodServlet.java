@@ -74,7 +74,7 @@ public class FoodServlet extends HttpServlet {
 							+ food_image_path.substring(food_image_path.lastIndexOf("."));
 					
 					String filepath = request.getRealPath("FoodImages")
-							+ "/" + name;
+							+ "\\" + name;
 				
 					File file = new File(filepath);
 					OutputStream outStream = new FileOutputStream(file);
